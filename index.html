@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Countdown</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="header">
+            <button onclick="resetTimer()">reset</button>
+            <button onclick="setTimer()">set</button>
+            <button onclick="setnoti()" id="notibutt" style="text-decoration: line-through;">notify</button>
+            <button onclick="pauseTimer()" id="pause">pause</button>
+        </div>
+        <div class="box">
+            
+            <div>
+                <p id="countdown">[loading]</p>
+            </div>
+            <!-- <div id="settimer">
+                <form>
+                    <input type="number" id="time" name="time"
+                    pattern="[0-60]{2}:[0-60]{2}" placeholder="45:00">
+                    <button>set</button>
+                </form>
+            </div> -->
+        </div>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
