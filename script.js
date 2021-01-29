@@ -39,10 +39,18 @@ function resetTimer(){
 }
 
 function setTimer(){
-    var newtime = prompt('how many minutes?','45')
+    var newtime = prompt('how many minutes?',startingMins);
     setCookie('cStartingMins', newtime, 9999);
-    startingMins = parseFloat(newtime);
-    resetTimer();
+    var tofloat = parseFloat(newtime)
+    if (!isNaN(tofloat)) {
+        startingMins = tofloat;
+        resetTimer();
+    }
+    else{
+        clearInterval(intervalID);
+        countdownEL.innerHTML = "[bro thats not a number]";
+        document.body.style.backgroundColor = 'red';
+    }
 }
 
 function setnoti(){
@@ -80,6 +88,7 @@ function pauseTimer(){
 
 function readCookies(){
     startingMins = getCookie('cStartingMins') == ""? 25: parseFloat(getCookie('cStartingMins'));
+    if(isNaN(startingMins)) startingMins = 25;
     if(getCookie('cNoti') != ""){
         if(getCookie('cNoti') == 'true' && noti == false) setnoti();
         if(getCookie('cNoti') == 'false' && noti == true) setnoti();
