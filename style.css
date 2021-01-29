@@ -7,7 +7,7 @@ html, body {
 
 body{
     font-family: 'Chakra Petch', sans-serif;
-    font-size: min(20vw, 100px);
+    font-size: 20vw;
     background-color:lightcoral;
     transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
