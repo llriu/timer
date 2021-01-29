@@ -21,13 +21,20 @@ function update(){
     let show = `${mins}:${seconds}`;
 
     if(time < 0){
-        show = "time's up!";
+        show = "TIME'S UP!";
         document.body.style.backgroundColor = 'seagreen';
         if (noti) notifyMe();
         clearInterval(intervalID);
     }
-    countdownEL.innerHTML = show
+    changetext(show);
     time--
+}
+
+
+
+function changetext(text){
+    countdownEL.innerHTML = text;
+    document.title = text;
 }
 
 function resetTimer(){
@@ -48,7 +55,7 @@ function setTimer(){
     }
     else{
         clearInterval(intervalID);
-        countdownEL.innerHTML = "[bro thats not a number]";
+        changetext("[BRO THATS NOT A NUMBER]");
         document.body.style.backgroundColor = 'red';
     }
 }
@@ -75,7 +82,7 @@ function pauseTimer(){
     timerPaused = !timerPaused;
     if(timerPaused){
         clearInterval(intervalID);
-        countdownEL.innerHTML = "[paused]";
+        changetext("[PAUSED]");
         document.getElementById('pause').innerText = 'resume';
         document.body.style.backgroundColor = 'sandybrown';
     }else{
