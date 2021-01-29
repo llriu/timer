@@ -7,7 +7,7 @@ html, body {
 
 body{
     font-family: 'Chakra Petch', sans-serif;
-    font-size: min(15vw, 80px);
+    font-size: min(20vw, 100px);
     background-color:lightcoral;
     transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
@@ -25,7 +25,7 @@ body{
 .header button{
     margin: 5px 10px;
     font-family: 'Chakra Petch', sans-serif;
-    font-size: min(4vw, 30px);
+    font-size: min(6vw, 30px);
     background-color:transparent;
     color: white;
     border: 0px solid white;
