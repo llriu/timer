@@ -53,11 +53,7 @@ function setTimer(){
         startingMins = tofloat;
         resetTimer();
     }
-    else{
-        clearInterval(intervalID);
-        changetext("[BRO THATS NOT A NUMBER]");
-        document.body.style.backgroundColor = 'red';
-    }
+
 }
 
 function setnoti(){
