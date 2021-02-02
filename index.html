@@ -10,14 +10,29 @@
     <body>
         <div class="header">
             <button onclick="resetTimer()">reset</button>
-            <button onclick="setTimer()">set</button>
+            <button onclick="setTimerCustom()">set</button>
+            <div class="dropdown">
+                <div><button onclick="setTimer(10)">15 min</button></div>
+                <div><button onclick="setTimer(30)">30 min</button></div>
+                <div><button onclick="setTimer(45)">45 min</button></div>
+                <div><button onclick="setTimer(60)">60 min</button></div>
+                <div><button onclick="setTimerCustom()">custom</button></div>
+    
+            </div>
             <button onclick="setnoti()" id="notibutt" style="text-decoration: line-through;">notify</button>
             <button onclick="pauseTimer()" id="pause">pause</button>
         </div>
+
         <div class="box">
             
             <div>
-                <p id="countdown">[LOADING]</p>
+                <p id="message">[LOADING]</p>
+
+                <div>
+                    <p id="mins"></p>
+                    <p id=":"></p>
+                    <p id="secs"></p>
+                </div>
             </div>
         </div>
 

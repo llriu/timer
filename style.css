@@ -7,8 +7,8 @@ html, body {
 
 body{
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 20vw;
-    background-color:lightcoral;
+    font-size: 12vw;
+    background-color: indianred ;
     transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
     -o-transition: background-color .2s ease-in;
@@ -19,13 +19,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    /* height: 100%; */
 }
 
-.header button{
+button{
     margin: 5px 10px;
     font-family: 'Chakra Petch', sans-serif;
-    font-size: min(6vw, 30px);
+    font-size: min(4vw, 30px);
     background-color:transparent;
     color: white;
     border: 0px solid white;
@@ -40,4 +40,18 @@ body{
 
 #countdown{
     text-transform: uppercase;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+    display: none;
+
+}
+
+.dropdown div{
+    height: 50px;
+    /* position: relative; */
+    /* display: inline-block; */
+    
 }

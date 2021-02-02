@@ -2,12 +2,15 @@ let startingMins = .05;
 let noti = false;
 let timerPaused = false;
 
-readCookies();
+const activecolor = "indianred";
+const pausecolor = "sandybrown";
+const finishedcolor = "seagreen";
 
+readCookies();
 
 let time = startingMins * 60;
 
-const countdownEL = document.getElementById('countdown');
+const countdownEL = document.getElementById('message');
 
 update()
 var intervalID = setInterval(update, 1000);
@@ -22,15 +25,13 @@ function update(){
 
     if(time < 0){
         show = "TIME'S UP!";
-        document.body.style.backgroundColor = 'seagreen';
+        document.body.style.backgroundColor = finishedcolor;
         if (noti) notifyMe();
         clearInterval(intervalID);
     }
     changetext(show);
     time--
 }
-
-
 
 function changetext(text){
     countdownEL.innerHTML = text;
@@ -42,10 +43,10 @@ function resetTimer(){
     time = startingMins * 60;
     update();
     intervalID = setInterval(update, 1000);
-    document.body.style.backgroundColor = 'lightcoral';
+    document.body.style.backgroundColor = activecolor;
 }
 
-function setTimer(){
+function setTimerCustom(){
     var newtime = prompt('how many minutes?',startingMins);
     setCookie('cStartingMins', newtime, 9999);
     var tofloat = parseFloat(newtime)
@@ -54,6 +55,13 @@ function setTimer(){
         resetTimer();
     }
 
+}
+
+function setTimer(minutes){
+    var newtime = minutes
+    setCookie('cStartingMins', newtime, 9999);
+    startingMins = parseFloat(newtime);
+    resetTimer();
 }
 
 function setnoti(){
@@ -73,19 +81,18 @@ function setnoti(){
     }
 }
 
-
 function pauseTimer(){
     timerPaused = !timerPaused;
     if(timerPaused){
         clearInterval(intervalID);
         changetext("[PAUSED]");
         document.getElementById('pause').innerText = 'resume';
-        document.body.style.backgroundColor = 'sandybrown';
+        document.body.style.backgroundColor = pausecolor;
     }else{
         update();
         intervalID = setInterval(update, 1000);
         document.getElementById('pause').innerText = 'pause';
-        document.body.style.backgroundColor = 'lightcoral';
+        document.body.style.backgroundColor = activecolor;
     }
 }
 
@@ -98,9 +105,6 @@ function readCookies(){
     }
     console.log(getCookie('cNoti'));
 }
-
-
-
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
